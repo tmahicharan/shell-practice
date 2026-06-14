@@ -1,15 +1,6 @@
 #!/bin/bash
 
-echo " Today date is $(date)"
+leaders=("Mahatma Gandhi" "Nelson Mandela" "Martin Luther King Jr." "Abraham Lincoln" "Winston Churchill")
 
-start=$(date +%s)
-sleep 5
-end=$(date +%s)
-total=$(( end - start ))
-echo " Total time taken is $total seconds"
-
-echo " The current working directory is $pwd"
-echo "script name is $0"
-echo " who is running this : $USER"
-echo " The home directory is $HOME"
-echo PID is $$
+echo " All leaders : ${leaders [@]}"
+echo " 2nd leader : ${leaders [2]}"
