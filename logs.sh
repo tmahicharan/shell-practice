@@ -20,10 +20,10 @@ fi
 
 VALIDATE() {
     if [ $1 -ne 0 ]; then 
-        echo -e "$R ERROR: $2 INSTALLATION FAILED $N" $LOGS_FILE
+        echo -e "$R ERROR: $2 INSTALLATION FAILED $N"
         exit 1
     else
-        echo -e  "$G SUCCESS: $2 INSTALLATION SUCCESSFUL $N" $LOGS_FILE
+        echo -e  "$G SUCCESS: $2 INSTALLATION SUCCESSFUL $N"
     fi
 }
 
