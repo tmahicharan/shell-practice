@@ -1,8 +1,10 @@
 #!/bin/bash
-#!/bin/bash
 
 USERID=$(id -u)
-
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 if [ $USERID -ne 0 ]; then
     echo "Please run the script as root user"
@@ -11,18 +13,37 @@ fi
 
 VALIDATE() {
     if [ $1 -ne 0 ]; then 
-        echo -e "\e[31m" ERROR: $2 INSTALLATION FAILED"
+        echo -e "$R ERROR: $2 INSTALLATION FAILED $N"
         exit 1
     else
-        echo -e  "\e[32m" SUCCESS: $2 INSTALLATION SUCCESSFUL"
+        echo -e  "$G SUCCESS: $2 INSTALLATION SUCCESSFUL $N"
     fi
 }
 
-dnf installll nginx -y
-VALIDATE $? "NGINX "
 
-dnf installll mysql -y
-VALIDATE $? "MYSQL"    
+dnf list installed nginx 
+if [ $? -ne 0 ]; then
+    echo -e "$Y NGINX NOT INSTALLED, INSTALLING NGINX $N"
+    dnf install nginx -y
+    VALIDATE $? "NGINX "
+else
+    echo -e "$G NGINX ALREADY INSTALLED $N"
+fi
 
-dnf install python3 -y
-VALIDATE $? "PYTHON3"
+dnf list installed mysql
+if [ $? -ne 0 ]; then
+    echo -e "$Y MYSQL NOT INSTALLED, INSTALLING MYSQL $N"
+    dnf install mysql -y
+    VALIDATE $? "MYSQL"    
+else
+    echo -e "$G MYSQL ALREADY INSTALLED $N"
+fi
+
+dnf list installed python3
+if [ $? -ne 0 ]; then
+    echo -e "$Y Python3 NOT INSTALLED, INSTALLING PYTHON3 $N"
+    dnf install python3 -y
+    VALIDATE $? "PYTHON3"
+else
+    echo -e "$G Python3 ALREADY INSTALLED $N"
+fi
