@@ -17,10 +17,10 @@ VALIDATE() {
 }
 
 dnf install nginx -y
-$VALIDATE $? "NGINX"
+VALIDATE $? "NGINX "
 
 dnf install mysql -y
-$VALIDATE $? "MYSQL"    
+VALIDATE $? "MYSQL"    
 
 dnf install python3 -y
-$VALIDATE $? "PYTHON3"
+VALIDATE $? "PYTHON3"
