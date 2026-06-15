@@ -1,6 +1,5 @@
 #!/bin/bash
 
-leaders=("Mahatma Gandhi" "Nelson Mandela" "Martin Luther King Jr." "Abraham Lincoln" "Winston Churchill")
-
-echo "All leaders: ${leaders[@]}"
-echo "2nd leader: ${leaders[2]}"
+persons=("mahi" "vyshu" "divya" "sai")
+echo "All persons are : ${persons[@]}"
+echo "Frist person is : ${persons[1]}"
