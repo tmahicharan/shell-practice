@@ -31,7 +31,7 @@ for package in $@
  do
     dnf list installed $package &>> $LOG_FILE
     if [ $? -ne 0 ]; then
-    echo " $G Installing $package $N"
+        echo -e " $G Installing $package $N"
         dnf install $package -y &>> $LOG_FILE
         VALIDATE $? "$package"
     else
