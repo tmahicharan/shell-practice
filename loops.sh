@@ -19,11 +19,11 @@ if [ $USERId -ne 0 ]; then
 fi
 
 VALIDATE() {
-    if [$1-ne 0]; then
+    if [ $1 -ne 0 ]; then
         echo -e "$R Installing $2 is failed $N"
         exit 1
     else
-        echo -e "$G Installing $2 is Sucess $N"
+        echo -e "$G Installing $2 is Success $N"
     fi
 }
 
